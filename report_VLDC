@@ -1,0 +1,347 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{vietnam}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm] {geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{indentfirst,enumitem}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{scrextend}
+\renewcommand\thesection{\Roman{section}}
+\renewcommand\thesubsection{\arabic{subsection}}
+\title{Vẽ quỹ đạo chuyển động ném xiên trong trọng trường bỏ qua lực cản và xác định một vài thông số liên quan}
+\author{VŨ NHẬT HUY}
+\date{1/11/2023}
+\usepackage{tikz,tkz-tab}
+
+\begin{document}
+\begin{titlepage}
+%\SetWatermarkText{\includegraphics[width = 0.97\paperwidth,
+%height = 0.97\paperheight]{bia.png}}
+%\SetWatermarkAngle{0} 
+%\SetWatermarkText{\includegraphics[scale=1]{hust.png}}
+%\SetWatermarkAngle{0} 
+\begin{tikzpicture}[remember picture,overlay,inner sep=0,outer sep=0]
+     \draw[blue!70!black,line width=4pt] ([xshift=-1.5cm,yshift=-2cm]current page.north east) coordinate (A)--([xshift=1.5cm,yshift=-2cm]current page.north west) coordinate(B)--([xshift=1.5cm,yshift=2cm]current page.south west) coordinate (C)--([xshift=-1.5cm,yshift=2cm]current page.south east) coordinate(D)--cycle;
+
+     \draw ([yshift=0.5cm,xshift=-0.5cm]A)-- ([yshift=0.5cm,xshift=0.5cm]B)--
+     ([yshift=-0.5cm,xshift=0.5cm]B) --([yshift=-0.5cm,xshift=-0.5cm]B)--([yshift=0.5cm,xshift=-0.5cm]C)--([yshift=0.5cm,xshift=0.5cm]C)--([yshift=-0.5cm,xshift=0.5cm]C)-- ([yshift=-0.5cm,xshift=-0.5cm]D)--([yshift=0.5cm,xshift=-0.5cm]D)--([yshift=0.5cm,xshift=0.5cm]D)--([yshift=-0.5cm,xshift=0.5cm]A)--([yshift=-0.5cm,xshift=-0.5cm]A)--([yshift=0.5cm,xshift=-0.5cm]A);
+
+
+     \draw ([yshift=-0.3cm,xshift=0.3cm]A)-- ([yshift=-0.3cm,xshift=-0.3cm]B)--
+     ([yshift=0.3cm,xshift=-0.3cm]B) --([yshift=0.3cm,xshift=0.3cm]B)--([yshift=-0.3cm,xshift=0.3cm]C)--([yshift=-0.3cm,xshift=-0.3cm]C)--([yshift=0.3cm,xshift=-0.3cm]C)-- ([yshift=0.3cm,xshift=0.3cm]D)--([yshift=-0.3cm,xshift=0.3cm]D)--([yshift=-0.3cm,xshift=-0.3cm]D)--([yshift=0.3cm,xshift=-0.3cm]A)--([yshift=0.3cm,xshift=0.3cm]A)--([yshift=-0.3cm,xshift=0.3cm]A);
+
+   \end{tikzpicture}
+\begin{center}
+    \vspace{7pt}
+    
+    \textbf{ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH}
+    
+    \vspace{7pt}
+    \textbf{TRƯỜNG ĐẠI HỌC BÁCH KHOA}
+\end{center}
+\vspace{10pt}
+\begin{center}
+    \includegraphics[scale=0.3]{HCMUT.png}
+    
+    \vspace{10pt}
+    \fontsize{18pt}{17pt}\selectfont 
+    \textbf{BÁO CÁO BÀI TẬP LỚN} 
+    
+    \vspace{7pt}
+    \textbf{VẬT LÝ ĐẠI CƯƠNG}
+\end{center}
+\begin{flushleft}
+    \fontsize{14pt}{17pt}\selectfont  
+    \textbf{\textsl{ĐỀ TÀI}}
+\end{flushleft}
+\begin{center}
+    \fontsize{18pt}{17pt}\selectfont 
+    \textbf{\textrm{VẼ QUỸ ĐAO CHUYỂN ĐỘNG NÉM XIÊN TRONG TRỌNG TRƯỜNG BỎ QUA LỰC CẢN VÀ XÁC ĐỊNH MỘT VÀI THÔNG SỐ LIÊN QUAN}}
+\end{center}
+
+\begin{center}
+\vspace{15pt}
+\textbf{GVHD: Mai Hữu Xuân - Nguyễn Xuân Thanh Trâm}
+\end{center}
+
+\begin{center}
+    \vspace{15pt}
+\textbf{Lớp: L26}
+\end{center}
+
+\begin{center}
+\vspace{15pt}
+\textbf{Nhóm 1}
+\end{center}
+
+
+\vspace{10pt}
+\begin{center}
+    \textbf{Thành phố Hồ Chí Minh, 2023}
+\end{center}
+\end{titlepage}
+\newpage
+\vspace{10pt}
+\textbf{DANH SÁCH THÀNH VIÊN:}
+
+\begin{tabbing}
+\hspace{8cm}\=\hspace{3cm}\=\hspace{3cm} \kill
+{\it \textbf{Họ và tên}}\>{\it \textbf{MSSV}}\>{\it \textbf{Lớp}}\\
+\begin{bfseries}Vũ Ngọc Duy Anh\end{bfseries}\> \begin{bfseries}2310162\end{bfseries}\> \begin{bfseries}L26\end{bfseries}\\
+\begin{bfseries}Hồ Hữu Thiên Bảo\end{bfseries}\> \begin{bfseries}2310221\end{bfseries}\> \begin{bfseries}L26\end{bfseries}\\
+\begin{bfseries}Đào Quang Dương\end{bfseries}\> \begin{bfseries}2310579\end{bfseries}\> \begin{bfseries}L26\end{bfseries}\\
+\begin{bfseries}Hứa Gia Phúc\end{bfseries}\> \begin{bfseries}2312681\end{bfseries}\> \begin{bfseries}L26\end{bfseries}\\
+\begin{bfseries}Vũ Nhật Huy\end{bfseries}\> \begin{bfseries}2311267\end{bfseries}\> \begin{bfseries}L26\end{bfseries}\\
+\begin{bfseries}Lê Duy Pu Tin\end{bfseries}\> \begin{bfseries}2313450\end{bfseries}\> \begin{bfseries}L26\end{bfseries}\\
+\end{tabbing}
+\onehalfspacing
+\tableofcontents
+\newpage
+\section{Giới thiệu}
+Bài toán chuyển động vật ném xiên là bài toán được ứng dụng cao, thường gặp nhiều trong lĩnh vực thể thao như: ném tạ, bóng chày, bắn súng, đẩy tạ, ném lao,... Khi một vật bất kỳ sẽ chịu tác dụng của trọng lực (lực hút của Trái Đất, hay còn gọi là lực hút trọng trường). Chính nhờ lực này mọi thứ trên Trái đất không bị ở trạng thái lơ lửng. Trong chuyển động ném xiên cũng thế, lực này đã khiến một vật khi ném xiên: ban đầu sẽ đi lên cao hơn vị trí ném, nhưng dần dần sẽ rơi xuống và chạm đất. Chính vì thế, việc tìm ra phương thức giải đáp vấn đề xoay quanh về chuyển động ném xiên sẽ giúp sinh viên hiểu rõ hơn về chuyển động ném xiên trong môi trường có trọng lực cũng như cách thức ứng dụng phần mềm Matlab để mô tả quỹ đạo chuyển động của chúng. Đó là lý do hình thành đề tài của nhóm chúng em.
+\begin{center}
+    \includegraphics[scale = 0.7]{ly thuyet.png}
+\end{center}
+\newpage
+\section{Lý thuyết}
+Chuyển động ném xiên là một dạng chuyển động hai chiều trong không gian. Trong chuyển động ném xiên, vật thể được ném lên theo một góc ném $\alpha$ so với mặt phẳng ngang. Gia tốc trọng trường tác động vào vật một lực theo phương thẳng đứng hướng xuống làm thay đổi hướng và tốc độ của vật thể trong suốt quá trình chuyển động. 
+
+\begin{itemize}
+    \item Ném một vật chuyển động trong trường trọng lực, bỏ qua ma sát, vật sẽ luôn có gia tốc g hướng xuống.
+    \item Phương trình chuyển động của vật được viết theo phương ngang và phương đứng tạo thành hệ 2 phương trình.
+    \item Quỹ đạo chuyển động của vật luôn là đường parabol.
+\end{itemize}
+Có 3 kiểu thường gặp: 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{quydao2.png}
+\end{figure}
+\subsection{Ném xiên lên}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{nemxienlen.png}
+\end{figure}
+Phương trình chuyển động: 
+\begin{equation*}
+    \begin{cases}
+        x = v_0\cos \alpha .t\\
+        y = v_0\sin \alpha .t - \dfrac{1}{2}gt^2
+    \end{cases}
+\end{equation*}
+
+Phương trình quỹ đạo: 
+\begin{equation*}
+    y = x.\tan \alpha - \frac{g}{2v^2_0 \cos^2 \alpha}x^2
+\end{equation*}
+
+$\Rightarrow$ Quỹ đạo chuyển động có dạng là parabol.
+
+Phương trình vận tốc: 
+\begin{equation*}
+    \begin{cases}
+        v_x = v_0\cos \alpha\\
+        v_y = v_0\sin \alpha - gt
+    \end{cases}
+\end{equation*}
+Từ đây ta có một vài nhận xét sau: 
+\begin{itemize}
+    \item Vận tốc theo phương ngang không đổi: $v_x = const$.
+    \item Vận tốc theo phương thẳng đứng giảm dần đến độ cao H thì $v_y = 0$, sau đó lại tăng dần.
+\end{itemize}
+
+Thời gian vật đạt đến độ cao cực đại H: $v_y = 0 \longrightarrow t_H = \dfrac{v_0 \sin \alpha}{g}$.
+
+Thời gian vật chạm đất:
+$$y = v_0\sin \alpha .t - \frac{1}{2}gt^2 = 0 \Rightarrow t_R = \frac{2v_0 \sin \alpha}{g}$$
+
+$\Longrightarrow t_R = 2t_H$. Điều này là do tính đối xứng của quỹ đạo parabol.
+
+Độ cao cực đại mà vật đạt được: $H = \dfrac{v^2_0 \sin^2 \alpha}{2g}$
+
+Tầm xa mà vật đạt được: $R = \dfrac{v^2_0 \sin 2 \alpha}{g}$
+\subsection{Ném xiên xuống}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{nemxienxuong.png}
+\end{figure}
+Phương trình chuyển động: 
+\begin{equation*}
+    \begin{cases}
+        x = v_0\cos \alpha .t\\
+        y = v_0\sin \alpha .t + \dfrac{1}{2}gt^2
+    \end{cases}
+\end{equation*}
+
+Phương trình quỹ đạo: 
+\begin{equation*}
+    y = x.\tan \alpha + \frac{g}{2v^2_0 \cos^2 \alpha}x^2
+\end{equation*}
+
+$\Rightarrow$ Quỹ đạo chuyển động có dạng là parabol.
+
+Phương trình vận tốc: 
+\begin{equation*}
+    \begin{cases}
+        v_x = v_0\cos \alpha\\
+        v_y = v_0\sin \alpha + gt
+    \end{cases}
+\end{equation*}
+Từ đây ta có một vài nhận xét sau: 
+\begin{itemize}
+    \item Vận tốc theo phương ngang không đổi: $v_x = const$.
+    \item Vận tốc theo phương thẳng đứng tăng dần theo thời gian.
+\end{itemize}
+\subsection{Ném ngang}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{nemngang.png}
+\end{figure}
+Phương trình chuyển động: 
+\begin{equation*}
+    \begin{cases}
+        x = v_0t\\
+        y = \dfrac{1}{2}gt^2
+    \end{cases}
+\end{equation*}
+
+Phương trình quỹ đạo: 
+\begin{equation*}
+    y = \frac{g}{2v^2_0}x^2
+\end{equation*}
+
+$\Rightarrow$ Quỹ đạo chuyển động có dạng là parabol.
+
+Phương trình vận tốc: 
+\begin{equation*}
+    \begin{cases}
+        v_x = v_0t\\
+        v_y = gt
+    \end{cases}
+\end{equation*}
+Từ đây ta có một vài nhận xét sau: 
+\begin{itemize}
+    \item Vận tốc theo phương ngang không đổi: $v_x = const$.
+    \item Vận tốc theo phương thẳng đứng tăng dần theo thời gian.
+\end{itemize}
+
+Ngoài ra, ta có mối liên hệ giữa $v_x$ và $v_y$ thông qua góc hợp bởi phương ngang của vật tại thời điểm $t$ bất kỳ được tính bởi công thức dưới đây: 
+\begin{equation*}
+        \tan \beta = \frac{v_y}{v_x} = \frac{v_o\sin \alpha - gt}{v_0\cos \alpha}
+\end{equation*}
+
+Từ đó ta có gia tốc của vật khi phân tích theo hai phương tiếp tuyến và pháp tuyến khi chuyển động tại thời điểm bất kỳ:
+\begin{equation*}
+    \begin{cases}
+        a_t = g\sin \beta \\
+        a_n = g\cos \beta = \dfrac{v^2}{R}
+    \end{cases}
+\end{equation*}
+\newpage
+\section{MATLAB code và giải thích}
+\textbf{Đề bài:} Sử dụng Matlab để giải bài toán sau. “Một hòn đá được ném theo phương ngang từ độ cao $h = 20 m$ với vận tốc $v_0 = 15 m/s$, lấy $g = 9,8 m/s^2$. Xác định:
+\begin{enumerate}
+    \item[a)] Tỉ số vận tốc của hòn đá sau khi ném 1 giây $(v_1 )$ và sau khi ném 2 giây $(v_2 )$.
+    \item[b)] Gia tốc pháp tuyến và gia tốc tiếp tuyến của hòn đá sau khi ném 1 giây.
+\end{enumerate}
+
+\textbf{Đoạn code hoàn chỉnh:}
+\begin{lstlisting}
+syms x(t) y(t);
+syms g t v0 delta R x0 y0;
+Dx=diff(x,t);
+Dy=diff(y,t);
+ax=diff(x,2)==0;
+ay=diff(y,2)==-g;
+%initial condition
+iCond=[Dx(0)==v0*cos(delta);Dy(0)==v0*sin(delta);x(0)==0;y(0)==20];
+%using dsolve function to find the equation of motion
+R=dsolve(ax,ay,iCond);
+disp(' Phuong trinh quy dao tong quat cua vat nem ngang : ')
+disp(['X = ',char(R.x)]) % xAxis
+disp(['Y = ',char(R.y)]) % yAxis
+%plugin iCond
+disp(' Phuong trinh quy dao cua vat theo de: ')
+X=subs(R.x, [x0,v0,delta],[0,15,0]);
+Y=subs(R.y, [y0,v0,g,delta],[0,15,9.8,0]);
+disp(['X = ',char(subs(R.x, [x0,v0,delta],[0,15,0]))]) % xAxis
+disp(['Y = ',char(subs(R.y, [y0,v0,g,delta],[0,15,9.8,0]))]) % yAxis
+Vx=diff(R.x,t);
+Vy=diff(R.y,t);
+V=sqrt(Vx^2+Vy^2);
+V1=subs(V, [x0,y0,v0,g,t,delta],[0,20,15,9.8,1,0]); % t=1s
+V2=subs(V, [x0,y0,v0,g,t,delta],[0,20,15,9.8,2,0]); %t=2s
+fprintf('a) Ti so van toc luc t=1s va t=2s la V1/V2: %6f\n ', V1/V2);
+at=subs(diff(V,t), [x0,y0,v0,g,t,delta],[0,20,15,9.8,1,0]); % t=1
+an=subs(sqrt(g^2-at^2), g, 9.8);
+fprintf('b) gia toc tiep tuyen cua vat tai t=1s at = %6f\n', at)
+fprintf(' gia toc phap tuyen cua vat tai t=1s an = %6f\n', an)
+tmax=solve(Y==0,t>0);
+t_range=[0,double(tmax)];
+fplot(X,Y,t_range)
+title('Quy dao chuyen dong cua vat')
+xlabel('x')
+ylabel('y')
+\end{lstlisting}
+
+\textbf{Giải thích code}\\
+Line $1 \to 2$, khai báo biến cần sử dụng.\\ \\
+\includegraphics[scale = 1]{code1.png}\\
+Line $4 \to 11$, Định nghĩa các khái niệm cần sử dụng và thiết lập giả thiết ban đầu của đề. \\ \\ 
+\includegraphics[scale = 0.7]{code2.png} \\ 
+Line $13 \to 18$, Sử dụng hàm dsolve của matlab với các khái niệm đã được định nghĩa trước để giải phương trình vi phân tìm phương trình chuyển động tổng quát của vật theo 2 trục x và y và biểu diễn phương trình lên màn hình.\\ \\
+\includegraphics[scale = 0.7]{code3.png}\\
+Line $20 \to 25$, truyền các đối số vô phương trình tổng quát đã được thiết lập để tìm phương trình chuyển động của vật theo đề bài sau đó biểu diễn lên màn hình.\\ \\
+\includegraphics[scale = 0.7]{code4.png}\\
+Line $27 \to 32$, Sử dụng định nghĩa để tìm phương trình tốc độ của vật sau đó truyền đối số để tìm tỉ lệ V1/V2, biểu diễn kết quả lên màn hình.\\ \\
+\includegraphics[scale = 0.7]{code5.png}\\
+Line $34 \to 37$, sử dụng định nghĩa để tìm gia tốc tiếp tuyến và gia tốc pháp tuyến của vật tại t = 1s, sau đó biểu diễn lên màn hình.\\
+\includegraphics[scale = 0.7]{image.png}\\
+Line $39->44$: xác định thời gian rơi của vật để giới hạn miền của đồ thị, sau đó sử dụng các hàm có sẵn của matlab để đặt tên và vẽ đồ thị quỹ đạo chuyển động của vật.\\
+\includegraphics[scale = 0.7]{code6.png}\\
+Một vài lệnh Matlab được sử dụng:
+\begin{center}
+\begin{tabularx}{0.9\textwidth} { 
+  | >{\raggedright\arraybackslash}X 
+  | >{\raggedright\arraybackslash}X 
+  | }
+ \hline
+ syms & Khai báo biến \\
+ \hline
+ dsolve  & Giải phương trình vi phân  \\
+ \hline
+ disp  & Hiển thị giá trị ra màn hình  \\
+ \hline
+ linspace  & Tạo dãy số bắt đầu $x_0$ tới $x_n$ và khoảng cách giữa các giá trị  \\
+ \hline
+ plot  & Vẽ các điểm và đường trong mặt phẳng \\
+ \hline
+ grid on  & Hiển thị ô trên đồ thị  \\
+ \hline
+ xlabel, ylabel  & Đặt tên cho trục hoành và trục tung  \\
+ \hline
+ title  & Đặt tên cho đồ thị  \\
+ \hline
+ axis  & Thiết lập giới hạn trục  \\
+ \hline
+\end{tabularx}
+\end{center}
+\newpage
+\section{Kết quả và nhận xét}
+\begin{center}
+    \includegraphics[scale = 0.8]{ket qua.png}
+\end{center}
+\begin{center}
+    \includegraphics[scale = 0.5]{quy dao.png}
+\end{center}
+
+Thông qua việc tìm hiểu và nghiên cứu đề tài này giúp chúng em có cái nhìn chi tiết hơn về việc ứng dụng kiến thức Vật lý đại cương vào giải quyết vấn đề thực tế. Đây là bài toán cổ điển trong Vật lý cho các thuật toán mô hình hóa liên quan đến phương thức chuyển động. Đề tài đã được nhiều người nghiên cứu và giải quyết, nhưng hy vọng những nghiên cứu đánh giá của chúng em sẽ góp phần bổ sung thêm một hướng giải quyết cho bài toán. Do thời gian có hạn nên đề tài không tránh khỏi những sai sót, mong thầy cô góp ý, đánh giá giúp chúng em hoàn thiện đề tài.
+\section{Tài liệu tham khảo}
+A. L. Garcia and C. Penland, MATLAB Projects for Scientists and Engineers, Prentice Hall,
+Upper Saddle River, NJ, 1996. \hyperlink{http://www.algarcia.org/fishbane/fishbane.html .}{http://www.algarcia.org/fishbane/fishbane.html .}
+\end{document}
