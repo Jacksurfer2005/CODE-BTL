@@ -1,0 +1,113 @@
+function sample
+syms t
+X=input('nhap ham so x=');
+Y=input('nhap ham so y=');
+[~,m1]=numden(X); %m1 la mau cua X
+if isreal(m1) %neu m1 la so thuc
+    m1=[]; %thi nghiem cua mau X =[]
+else
+    m1=solve(m1);% neu khong thi giai pt mau, va gan nghiem la m1
+end
+[~,m2]=numden(Y);%tach mau cua Y
+if isreal(m2)
+    m2=[];
+else
+    m2=solve(m2);
+end
+tn=[m1;m2]; %gan tn la tap nghiem cua 2 mau.
+tn=unique(tn); % loai bo nghiem trung nhau
+tn=double(tn); %chieu sang kieu double
+[m,~]=size(tn); %m la so nghiem trong tn
+tcdung=1;  %bo dem tiem can ngang                                   
+tcngang=1;   %bo dem tiem can dung      
+tcxien=1;   %bo dem tiem can xien
+x=[];y=[];a=[];b=[]; %x: tiem can dung, y:tiem can ngang, a,b: la he so tuong ung cua tc xien y=ax+b
+if ~isempty(tn) %neu tn khac rong
+ for i=1:m %vong lap di tung nghiem
+   if abs(imag(tn(i)))<0.000000000000001 %neu nghiem la so thuc  
+     ghXr=limit(X,t,tn(i),'right');ghXr=double(ghXr); %gioi han ben phai cua x khi t-->tn va chuyen sang kieu double
+     ghYr=limit(Y,t,tn(i),'right');ghYr=double(ghYr);  %gioi han ben phai cua y khi...
+     ghXl=limit(X,t,tn(i),'left');ghXl=double(ghXl);  %gioi han ben trai
+     ghYl=limit(Y,t,tn(i),'left');ghYl=double(ghYl);
+     [x,y,a,b,tcdung,tcngang,tcxien]=tc(ghXr,ghYr,Y,X,x,y,a,b,tcdung,tcngang,tcxien,tn(i),'right');   %tim cac tiem can khi t-->tn+
+     [x,y,a,b,tcdung,tcngang,tcxien]=tc(ghXl,ghYl,Y,X,x,y,a,b,tcdung,tcngang,tcxien,tn(i),'left');    %tim cac tiem can khi t-->tn-
+   end
+ end
+end
+ghXr=limit(X,inf);ghXr=double(ghXr);  %gioi han ben phai cua x khi t-->inf va chuyen sang kieu double
+ghYr=limit(Y,inf);ghYr=double(ghYr);
+ghXl=limit(X,-inf);ghXl=double(ghXl); 
+ghYl=limit(Y,-inf);ghYl=double(ghYl);
+[x,y,a,b,tcdung,tcngang,tcxien]=tc(ghXr,ghYr,Y,X,x,y,a,b,tcdung,tcngang,tcxien,inf,'');
+[x,y,a,b,tcdung,tcngang,tcxien]=tc(ghXl,ghYl,Y,X,x,y,a,b,tcdung,tcngang,tcxien,-inf,'');
+set(ezplot(X,Y,[-20,20,-20,20]),'Color','green','LineWidth',2)
+hold on
+if tcdung==1                
+    disp('ham so khong co tiem can dung'),disp(' ')
+else
+    disp ('ham so co cac tiem can dung la:')
+    x=unique(x); %loai bo cac tiem can dung trung nhau
+    [k,~]=size(x); 
+    for i=1:k   %xuat ra cac tiem can dung     
+        text=[' x= ' num2str(x(i,1))]; disp(text)
+        text=['x-(' num2str(x(i,1)) ')+0*y'];
+        set(ezplot(text,[-50,50,-50,50]),'Color','blue','LineWidth',1)  %ve tiem can dung     
+    end
+end
+if tcngang==1                              
+    disp('ham so khong co tiem can ngang'),disp(' ')
+else
+    disp('ham so co cac tiem can ngang la:')
+    y=unique(y);  %loai bo cac tiem can ngang trung nhau
+    [p,~]=size(y);
+    for i=1:p       %xuat ra cac tiem can ngang                     
+        text=[' y= ' num2str(y(i,1))]; disp(text)                     
+        set(ezplot(num2str(y(i,1)),[-50,50,-50,50]),'Color','blue','LineWidth',1) %ve tiem can ngang       
+    end
+end
+syms x y
+if tcxien==1
+    disp('ham so khong co tiem can xien')
+else
+    disp('ham so co cac tiem can xien la:')
+    xien=a(1:tcxien-1,1)*x+b(1:tcxien-1,1); %gon a va b ( a*x+b)
+    xien=unique(xien); %loai bo cac tiem can ngang trung nhau
+    [q,~]=size(xien);
+    for i=1:q   %xuat ra cac tiem can xien  
+       text=['y= ' char(xien(i,1))]; disp(text)
+       set(ezplot(text,[-50,50,-50,50]),'Color','blue','LineWidth',1);%ve tiem can xien 
+    end
+end
+axis([-20 20 -20 20])
+box off
+grid on %tao luoi
+text=['do thi va cac tiem can cua ham: x= ' char(X) ' va  y= ' char(Y)]; %ghi tieu de
+title(text)
+hold off %ngung ve
+end
+%ham tim tiem can
+function [x,y,a,b,tcdung,tcngang,tcxien]=tc(ghX,ghY,Y,X,x,y,a,b,tcdung,tcngang,tcxien,d,str)
+syms t
+     if ~isinf(ghX) && isinf(ghY) && ~isnan(ghX) %neu ghx la so thuc va ghy la vo cung
+         x(tcdung,1)=ghX; %thi ta co tiem can dung
+         tcdung=tcdung+1;%tang chi so dem tiem can dung len 1
+     end
+     if isinf(ghX) && ~isinf(ghY) && ~isnan(ghY)%neu ghy la so thuc va ghx la vo cung
+         y(tcngang,1)=ghY; %thi ta co tiem can ngang
+         tcngang=tcngang+1;%tang chi so dem tiem can ngang len 1
+     end
+     if isinf(ghX) && isinf(ghY) %neu ghx va ghy deu tien toi vo cung
+         a(tcxien,1)=limit(Y/X,t,d,str); %tim he so a
+         if a(tcxien,1)==0 || isinf(a(tcxien,1)) || isnan(a(tcxien,1)) %neu a khong la so thuc hoac =0
+            a(tcxien,:)=[]; %loai di a va thoai
+         else
+            b(tcxien,1)=limit((Y-a(tcxien,1)*X),t,d,str); %tim he so b
+            if isinf(b(tcxien,1)) || isnan(b(tcxien,1)) %neu a khong la so thuc
+               a(tcxien,:)=[];%loai di a
+               b(tcxien,:)=[];%loai di b va thoai
+             else
+               tcxien=tcxien+1;%tang chi so dem tiem can xien len 1
+            end
+         end
+     end
+end
