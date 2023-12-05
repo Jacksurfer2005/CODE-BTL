@@ -1,0 +1,134 @@
+%%%%%%%%%%%%%%%%%
+%Mẫu làm khóa luận bằng LaTeX
+%Soạn trên TeXMaker
+%Bộ gõ Unikey 4.0
+%Người soạn: Dương Đức Lâm
+%Download: 59clc.wordpress.com
+%Liên lạc: k59clc@gmail.com or duongduclam@maths.vn
+%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath, amsthm, amssymb,latexsym,amscd,amsfonts,enumerate}
+\usepackage[top=3.5cm, bottom=3.0cm, left=3.5cm, right=2.0cm]{geometry}  % căn lề theo quy chuẩn KLTN
+\usepackage{color, fancyhdr, graphicx, wrapfig}
+\usepackage[unicode]{hyperref}
+
+\newtheorem{dn}{Định nghĩa}[section]
+\newtheorem{tc}[dn]{Tính chất}
+\newtheorem{dl}[dn]{Định lí}
+\newtheorem{md}[dn]{Mệnh đề}
+\newtheorem{bd}[dn]{Bổ đề}
+\newtheorem{hq}[dn]{Hệ quả}
+\newtheorem{nx}[dn]{Nhận xét}
+\newtheorem{vd}{Ví dụ}
+
+
+\pagenumbering{roman}\pagestyle{plain}
+\pagestyle{fancy}
+\lhead{\it Khóa luận tốt nghiệp}
+\rhead{\it Phương trình đạo hàm riêng phi tuyến}
+\lfoot{\it Vũ Thị A} 			         
+\rfoot{\it K59CLC Toán ĐHSPHN}
+\renewcommand{\headrulewidth}{1,2pt} 			
+\renewcommand{\footrulewidth}{1,2pt}   % Cái này là tiêu đề chạy
+
+\begin{document} 
+
+\fontsize{13pt}{18pt}\selectfont   % Lệnh thay đổi cỡ chữ thành cỡ 13, cỡ dòng 18 (theo quy chuẩn của Khóa Luận TN).
+
+\setlength{\baselineskip}{18truept}
+\begin{titlepage}                                                       % Đây là trang bìa
+\begin{center}
+{\large\bf TRƯỜNG ĐẠI HỌC SƯ PHẠM HÀ NỘI}\\
+{\large\bf KHOA TOÁN-TIN} \\
+{---------------------o0o--------------------}
+\vskip 4cm
+{\bf KHÓA LUẬN TỐT NGHIỆP}\\[1cm]
+{\Large\bf \textbf{ĐIỀN TÊN KHÓA LUẬN CỦA BẠN VÀO ĐÂY NHÉ!}}\\
+\vskip 1cm
+{\bf {\it Chuyên ngành:}  Phương trình vi - tích phân}
+\vskip 5cm
+
+\begin{tabular}{r l}
+Giảng viên hướng dẫn:&{\bf GS. TSKH. ABC}\\[0.5cm]
+Sinh viên:&{\bf CHÍ PHÈO}\\[0.5cm]
+Lớp:&{\bf K59XYZ}
+\end{tabular}
+\vfill
+{\bf HÀ NỘI, 5/2013}
+\end{center}
+\end{titlepage}
+
+
+
+\chapter*{Lời nói đầu}
+\addcontentsline{toc}{chapter}{{\bf  Lời nói đầu}\rm} %Đưa lời nói đầu vào mục lục
+Trong thời đại công nghệ thông tin bùng nổ, việc học hỏi và nắm bắt \LaTeX là điều bắt buộc với sinh viên. Khóa luận này chúng tôi thực hiện dựa trên thực trạng đó, bla bla :)
+
+
+\chapter*{Một số kí hiệu viết tắt}
+\addcontentsline{toc}{chapter}{{\bf  Một số kí hiệu viết tắt}\rm} 
+\begin{tabular}{l l }
+$\|.\|$ & Chuẩn trong không gian Euclid.\\ 
+$||.||_{p}$ & Chuẩn trong không gian $L_{p}$.\\
+OTT & Ốm tương tư.\\
+BTBD & Bạn thật bá đạo!\\
+etc...
+\end{tabular}
+
+
+\tableofcontents	                        % Lệnh mục lục
+
+
+\chapter{Một số kiến thức chuẩn bị}         % Chương 1
+\pagenumbering{arabic}                      % Đánh lại trang
+\section{Không gian Sobolev}
+\subsection{Định nghĩa và tính chất}
+\begin{dn} \label{dn1}
+Lớp $ \mathcal{C}^k $ là lớp các hàm khả vi liên tục cấp $ k $.
+\end{dn}
+
+\begin{dl} \label{dl2}
+Lớp $ \mathcal{C}^k $ chứa lớp $ \mathcal{C}^0 $.
+\end{dl}
+Ta xét phương trình nổi tiếng sau
+\begin{equation} \label{e1}
+1 + 1 = 2
+\end{equation}
+Đừng coi thường, phương trình \eqref{e1} là một cuộc cách mạng của loài người sau hàng trăm nghìn năm chìm trong u tối! Từ Định lí \ref{dl2} ta suy ra Trái Đất luôn quay quanh Mặt Trời :) Còn từ Định nghĩa \ref{dn1} suy ra Mặt Trăng luôn quay quanh Trái Đất! =)) \\
+
+Các bạn gõ tiếp vào đây nhé!
+
+\newpage         % Mấy lệnh \newpage và abc, xyz này khi gõ thì các bạn bỏ đi nhé!
+abc
+\newpage
+xyz
+
+\chapter{Kết quả chính}                    % Chương 2
+Gõ nội dung chương 2 ở đây.
+
+\newpage
+abc
+
+\chapter*{Kết luận}                         % Chương 3
+\addcontentsline{toc}{chapter}{{\bf  Kết luận}\rm}
+Gõ nội dung chương kết luận ở đây.
+
+
+\begin{thebibliography}{99}               % Tài liệu tham khảo   
+\addcontentsline{toc}{chapter}{{\bf  Tài liệu tham khảo}\rm} 
+
+\bibitem{Eva}  L.C.  Evans, {\it Partial differential equations}, Graduate Studies in Mathematics Vol. 19, Amer. Math. Soc., Providence, Rhode Island, 1998.
+\bibitem{BaI}V. Barbu and M. Iannelli, {\it Controllability of the heat equation with memory}, Differential Integral Equations, 13(2003), pp. 1393-1412.
+
+% Chú thích: mỗi tài liệu là một bibitem.
+
+\end{thebibliography}
+
+
+\end{document}
+
+%Một số chú ý:
+%-Sau phần \end{document} thì văn bản không còn hiển thị.
+%-Các siêu liên kết (tên PT, định lí... được tham chiếu) thường có ô vuông đỏ bao quanh. Các bạn yên tâm, khi in ra sẽ ko xuất hiện cái ô vuông đó!
