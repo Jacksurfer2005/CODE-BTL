@@ -1,0 +1,128 @@
+\documentclass[12pt, a4paper]{report}
+\usepackage[utf8]{vietnam}
+\usepackage[top=2cm, bottom=1.6cm, left=1.2cm, right=1.5cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{indentfirst,enumitem}
+\usepackage{graphicx}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{scrextend}
+\usepackage{comment}
+\usepackage{soul}
+\usepackage{tikz,tkz-tab}
+
+\renewcommand\thesection{\Roman{section}}
+\renewcommand\thesubsection{\arabic{subsection}}
+\def\DN{\textbf{\textit{Định nghĩa. }}}
+
+\title{VẬT LÝ ĐẠI CƯƠNG A2 (GENERAL PHYSIC 2)}
+\author{Vũ Nhật Huy}
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\chapter{TRƯỜNG ĐIỆN TỪ}
+\section{Hệ thống các phương trình Maxwell.}
+\subsection{Luận điểm Maxwell I, điện trường xoáy và PT Maxwell-Faraday.}
+Mọi từ trường biến thiên theo thời gian đều làm xuất hiện điện trường xoáy. Điện trường xoáy không phải là trường tĩnh điện, nó là một điện trường biến thiên theo thời gian.\\
+Phương trình Maxwell-Faraday: 
+\begin{equation}
+    \oint_{(C)} \Vec{E}.d\Vec{l} = -\int_{S} \frac{\partial \Vec{B}}{\partial t}.d\vec{S}
+\end{equation}
+Phương trình Gauss đối với từ trường: 
+\begin{equation}
+    \oint_S \vec{B}.d\vec{S} = 0
+\end{equation}
+\subsection{Luận điểm Maxwell II, dòng điện dịch và PT Maxwell-Ampere.}
+Mọi điện trường biến thiên theo thời gian đều làm xuất hiện một từ trường biến thiên.
+
+Môi trường đồng chất và đẳng hướng thì: 
+\begin{equation}
+    \vec{D} = \varepsilon_0 \varepsilon \vec{E};\thickspace \vec{B} = \mu_0 \mu \vec{H},\thickspace \Vec{j} = \sigma \vec{E}
+\end{equation}
+\textbf{Biểu thức mật độ dòng điện dịch dạng tổng quát.}
+\begin{equation}
+    \Vec{j}_{\text{dịch}}=\frac{\partial \vec{D}}{\partial t}
+\end{equation}
+\begin{equation}
+    \Vec{j}_{\text{toàn phần}} = \Vec{j}_{\text{dẫn}} + \Vec{j}_{\text{dịch}} = \Vec{j}_{\text{dẫn}} + \frac{\partial \vec{D}}{\partial t}
+\end{equation}
+Phương trình Maxwell-Ampere:
+\begin{equation}
+    \oint_{l} \vec{H}.d\vec{l} = I_{\text{toàn phần}} = \int_{S} \left( \Vec{j}_{\text{dẫn}} + \frac{\partial \vec{D}}{\partial t} \right) .d\vec{S}
+\end{equation}
+Phương trình Gauss đối với điện trường: 
+\begin{equation}
+    \oint_S \vec{D}.d\vec{S} = \sum_i q_i
+\end{equation}
+\subsection{Mật độ năng lượng trường điện từ.}
+\begin{equation}
+    w = w_e + w_m = \frac{1}{2} \left( \varepsilon_0 \varepsilon E^2 + \varepsilon_0 \varepsilon H^2 \right) = \frac{1}{2} \left( \vec{D}\vec{E} + \vec{B}\vec{H} \right)
+\end{equation}
+Từ đây ta có biểu thức năng lượng cho trường điện từ trong thể tích không gian có trường
+\begin{equation}
+    W = \int_V w.dV=\int_V \frac{\vec{D}\vec{E} + \vec{B}\vec{H}}{2} dv
+\end{equation}
+\section{Mạch dao động LC lý tưởng.}
+\subsubsection{Điện tích tức thời của bản tụ điện.}
+\begin{equation}
+    q = Q_0\cos(\omega t + \varphi)
+\end{equation}
+\subsubsection{Cường độ dòng điện tức thời trong mạch.}
+\begin{equation}
+    i = q' = -\omega Q_0 \sin(\omega t + \varphi) = I_0 \cos \left(\omega t + \varphi + \frac{\pi}{2}\right)
+\end{equation}
+\subsubsection{Hiệu điện thế tức thời giữa hai bản tụ điện.}
+\begin{equation}
+    u = \frac{q}{C} = \frac{Q_0}{C}\cos (\omega t + \varphi) = U_0 \cos(\omega t + \varphi)
+\end{equation}
+\[
+    \omega = \frac{1}{\sqrt{LC}}    
+\]
+\subsubsection{Mối liên hệ giữa các đại lượng.}
+\begin{equation}
+    I_0 = \omega Q_0 = \frac{Q_0}{\sqrt{LC}} = U_0 \sqrt{\frac{C}{L}}
+\end{equation}
+\begin{equation}
+    U_0 = \frac{Q_0}{C} = \frac{I_0}{\omega C} = I_0 \sqrt{\frac{L}{C}}
+\end{equation}
+\begin{equation}
+    Q_0 = CU_0 = \frac{I_0}{\omega} = I_0 \sqrt{LC}
+\end{equation}
+\subsubsection{Năng lượng điện trường.}
+\begin{equation}
+    W_C = \frac{Cu^2}{2} = \frac{q}{2C} = \frac{qu}{2}
+\end{equation}
+\begin{equation}
+    W_C = \frac{CU^2_0}{2}\cos^2 (\omega t + \varphi)
+\end{equation}
+\begin{equation}
+    W_{C(\max)} = \frac{CU^2_0}{2} = \frac{Q_0^2}{2C} = \frac{Q_0 U_0}{2}
+\end{equation}
+\subsubsection{Năng lượng từ trường.}
+\begin{equation}
+    W_L = \frac{Li^2}{2}=\frac{LI_0^2}{2}\sin^2 (\omega t + \varphi)
+\end{equation}
+\begin{equation}
+    W_{L(\max)} = \frac{LI_0^2}{2}
+\end{equation}
+\subsubsection{Năng lượng điện từ.}
+\begin{equation}
+    W = W_L + W_C = \frac{Cu^2}{2}+\frac{Li^2}{2} = const
+\end{equation}
+\begin{equation}
+    W = \frac{LI_0^2}{2} = \frac{CU^2_0}{2} = \frac{Q_0^2}{2C} = \frac{Q_0U_0}{2} = W_{L(\max)} = W_{C(\max)}
+\end{equation}
+\section{Sóng điện từ.}
+\newpage
+\chapter{DAO ĐỘNG SÓNG}
+\Large{A. DAO ĐỘNG}
+\section{Dao động cơ điều hòa.}
+\end{document}
