@@ -1,0 +1,21 @@
+\contentsline {section}{\numberline {I}Giới thiệu đề tài và mục đích nghiên cứu}{3}{section.0.1}%
+\contentsline {subsection}{\numberline {1}Đề tài nghiên cứu.}{3}{subsection.0.1.1}%
+\contentsline {subsection}{\numberline {2}Mục đích nghiên cứu.}{3}{subsection.0.1.2}%
+\contentsline {section}{\numberline {II}Định nghĩa và vai trò của đạo hàm trong phân tích dữ liệu tài chính}{3}{section.0.2}%
+\contentsline {subsection}{\numberline {1}Định nghĩa.}{3}{subsection.0.2.1}%
+\contentsline {subsection}{\numberline {2}Vai trò.}{3}{subsection.0.2.2}%
+\contentsline {section}{\numberline {III}Trình bày phương pháp sử dụng đạo hàm số trong phân tích dữ liệu tài chính}{5}{section.0.3}%
+\contentsline {subsubsection}{Các phương pháp sử dụng đạo hàm trong phân tích dữ liệu tài chính:}{6}{section*.2}%
+\contentsline {subsubsection}{Một số mô hình hàm cận biên như:}{8}{section*.3}%
+\contentsline {section}{\numberline {IV}Miêu tả các công cụ phần mềm được sử dụng trong quá trình tính toán}{11}{section.0.4}%
+\contentsline {section}{\numberline {V}Phân tích lợi nhuận tài chính bằng đạo hàm số}{12}{section.0.5}%
+\contentsline {section}{\numberline {VI}Phân tích các yếu tố khác liên quan đến tài chính bằng cách áp dụng đạo hàm số}{14}{section.0.6}%
+\contentsline {subsection}{\numberline {1}Tốc độ tăng trưởng}{14}{subsection.0.6.1}%
+\contentsline {subsubsection}{* Ý nghĩa tốc độ tăng trưởng}{14}{section*.4}%
+\contentsline {subsubsection}{* Vai trò đạo hàm số trong tốc độ tăng trưởng}{14}{section*.5}%
+\contentsline {subsection}{\numberline {2}Điểm cực đại và cực tiểu}{14}{subsection.0.6.2}%
+\contentsline {subsubsection}{* Ý nghĩa điểm cực đại và cực tiểu}{14}{section*.6}%
+\contentsline {subsubsection}{* Vai trò điểm cực đại và cực tiểu}{15}{section*.7}%
+\contentsline {subsection}{\numberline {3}Biến động và ổn định của dữ liệu tài chính}{15}{subsection.0.6.3}%
+\contentsline {section}{\numberline {VII}Kết quả và thảo luận}{18}{section.0.7}%
+\contentsline {section}{\numberline {VIII}Tài liệu tham khảo}{19}{section.0.8}%
