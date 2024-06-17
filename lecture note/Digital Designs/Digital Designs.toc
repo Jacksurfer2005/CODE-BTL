@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}HỆ THỐNG SỐ ĐẾM - SỐ NHỊ PHÂN}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Các hệ thống số đếm:}{2}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Khái niệm:}{2}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Chuyển đổi cơ số:}{2}{subsubsection.1.1.2}%
+\contentsline {section}{\numberline {2}Số nhị phân (Binary):}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Các tính chất của số nhị phân}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Các phép toán số học trên số nhị phân:}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Mã nhị phân:}{5}{subsection.2.3}%
