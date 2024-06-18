@@ -1,0 +1,66 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{vietnam}
+\usepackage[margin = 2cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{indentfirst,enumitem}
+\usepackage{graphicx}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{scrextend}
+\usepackage{comment}
+\usepackage{soul}
+\usepackage{tikz,tkz-tab}
+\usepackage{lscape}
+\usepackage{float,lscape}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{titling}
+\usepackage{import}
+%%%%%%%%%%%%%%%%%%%%
+\newcounter{Chapcounter}
+\newcommand\showmycounter{\addtocounter{Chapcounter}{1}\themycounter}
+\newcommand{\chapter}[1] 
+{ {\centering          
+  \addtocounter{Chapcounter}{1} \Large \textbf{ \color{blue} Chapter \theChapcounter: ~#1} }   
+  \addcontentsline{toc}{section}{ \color{blue} Chapter:~\theChapcounter~~ #1}    
+}
+\hypersetup{colorlinks=true}
+\hypersetup{linkcolor=black}
+
+\pagestyle{fancy}
+\fancyhead[r]{Huy Vu}
+\fancyhead[c]{\bfseries Electric Circuit Analysis}
+\fancyhead[l]{\today}
+\renewcommand{\headrulewidth}{0.2pt}
+\setlength{\headheight}{15pt}
+
+\begin{document}
+
+
+\begin{titlepage}
+    \centering
+    \vspace*{1in}
+
+    {\LARGE \bfseries Introduction to Electric Circuit Analysis}\\[1.5cm]
+
+    {\large Huy Vu}\\[0.5cm]
+    {\large Faculty of Electrical and Electronics Engineering}\\
+    {\large Ho Chi Minh City University of Technology}\\[2cm]
+
+    {\large \today}
+
+    \vfill
+\end{titlepage}
+\tableofcontents
+\newpage
+\import{image/chap/}{chap1.tex}
+\newpage
+\chapter{Mạch xác lập điều hòa}
+
+\end{document}
