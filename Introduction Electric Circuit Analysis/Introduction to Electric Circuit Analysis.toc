@@ -1,0 +1,57 @@
+\contentsline {section}{\numberline {1}Các khái niệm \& định luật cơ bản}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Giới hạn và phạm vi ứng dụng của bài toán mạch }{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Các phần tử mạch}{3}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Điện trở}{3}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Điện cảm}{4}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Điện trường}{4}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Hỗ cảm}{5}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Nguồn áp}{6}{subsubsection.1.2.5}%
+\contentsline {subsubsection}{\numberline {1.2.6}Nguồn dòng}{6}{subsubsection.1.2.6}%
+\contentsline {subsection}{\numberline {1.3}Công suất và năng lượng}{7}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Công suất}{7}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Năng lượng}{7}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}Các định luật cơ bản \& biến đổi tương đương}{7}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Các thuật ngữ}{7}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Định luật Kirchhoff 1: KCL (Kirchhoff Current Law)}{8}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.3}Định luật Kirchhoff 2: KVL (Kirchhoff Voltage Law)}{8}{subsubsection.1.4.3}%
+\contentsline {subsubsection}{\numberline {1.4.4}Hệ PT dòng điện nhánh}{9}{subsubsection.1.4.4}%
+\contentsline {subsubsection}{\numberline {1.4.5}Biến đổi nguồn áp lý tưởng:}{9}{subsubsection.1.4.5}%
+\contentsline {subsubsection}{\numberline {1.4.6}Biến đổi nguồn dòng lý tưởng:}{10}{subsubsection.1.4.6}%
+\contentsline {subsubsection}{\numberline {1.4.7}Biến đổi nguồn thực:}{10}{subsubsection.1.4.7}%
+\contentsline {subsubsection}{\numberline {1.4.8}Biến đổi điện trở nối tiếp:}{10}{subsubsection.1.4.8}%
+\contentsline {subsubsection}{\numberline {1.4.9}Biến đổi điện trở nối tiếp:}{10}{subsubsection.1.4.9}%
+\contentsline {subsubsection}{\numberline {1.4.10}Biến đổi điện trở mắc sao $\leftrightarrow $ tam giác:}{11}{subsubsection.1.4.10}%
+\contentsline {subsubsection}{\numberline {1.4.11}Quy tắc phân áp:}{11}{subsubsection.1.4.11}%
+\contentsline {subsubsection}{\numberline {1.4.12}Quy tắc phân dòng:}{11}{subsubsection.1.4.12}%
+\contentsline {section}{\numberline {2}Mạch xác lập điều hòa}{12}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Quá trình tuần hoàn}{12}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Quá trình điều hòa}{12}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Phương pháp biên độ phức}{13}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Giải bài toán mạch dùng ảnh phức}{14}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Quan hệ dòng áp trên các phần tử mạch}{15}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Điện trở}{15}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Điện cảm}{16}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}Điện dung}{16}{subsubsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.6}Các định luật dạng mạch phức}{17}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Trở kháng $\&$ Dẫn nạp}{17}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}Định luật Kirchhoff dạng phức}{17}{subsubsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.7}Công suất}{18}{subsection.2.7}%
+\contentsline {subsubsection}{\numberline {2.7.1}Công suất tác dụng $\&$ Công suất phản kháng}{18}{subsubsection.2.7.1}%
+\contentsline {subsubsection}{\numberline {2.7.2}Công suất trên các phần tử mạch}{19}{subsubsection.2.7.2}%
+\contentsline {subsubsection}{\numberline {2.7.3}Công suất biểu kiến (Apparent Power)}{20}{subsubsection.2.7.3}%
+\contentsline {subsubsection}{\numberline {2.7.4}Nguyên lý cân bằng công suất}{21}{subsubsection.2.7.4}%
+\contentsline {subsection}{\numberline {2.8}Hệ số công suất và cách hiệu chỉnh}{21}{subsection.2.8}%
+\contentsline {subsubsection}{\numberline {2.8.1}Hiệu chỉnh hệ số công suất}{21}{subsubsection.2.8.1}%
+\contentsline {subsubsection}{\numberline {2.8.2}Đo công suất}{22}{subsubsection.2.8.2}%
+\contentsline {subsection}{\numberline {2.9}Phối hợp trở kháng}{22}{subsection.2.9}%
+\contentsline {subsection}{\numberline {2.10}Mạch cộng hưởng}{22}{subsection.2.10}%
+\contentsline {subsubsection}{\numberline {2.10.1}Mạch cộng hưởng nối tiếp}{24}{subsubsection.2.10.1}%
+\contentsline {subsubsection}{\numberline {2.10.2}Mạch cộng hưởng song song}{27}{subsubsection.2.10.2}%
+\contentsline {section}{\numberline {3}Các PP phân tích - Các định lý}{30}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Phương pháp dòng điện nhánh}{30}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Phương pháp điện thế nút}{30}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Phương pháp dòng mắt lưới}{30}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Mạch điện có ghép hỗ cảm}{30}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Mạch có khuếch đại thuật toán}{30}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Các định lý mạch}{30}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Mạch 3 pha}{30}{subsection.3.7}%
