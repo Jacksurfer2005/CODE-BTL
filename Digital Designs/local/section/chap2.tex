@@ -1,0 +1,562 @@
+\section{ĐẠI SỐ BOOLE - CỔNG LOGIC}
+\subsection{Cấu trúc đại số Boole:}
+Là cấu trúc đại số được định nghĩa trên tập 1 phần tử nhị phân B $=\lbrace 0,1\rbrace$ và các phép toán nhị phân: AND(.), OR(+), NOT(').
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|cc|c|}
+    \hline
+    \textbf{x} & \textbf{y} & \textbf{x.y (x AND y)} \\ \hline
+    0          & 0          & 0                      \\
+    0          & 1          & 0                      \\
+    1          & 0          & 0                      \\
+    1          & 1          & 1                      \\ \hline
+    \end{tabular}
+    \qquad \qquad
+    \begin{tabular}{|cc|c|}
+    \hline
+    \textbf{x} & \textbf{y} & \textbf{x+y (x OR y)} \\ \hline
+    0          & 0          & 0                     \\
+    0          & 1          & 1                     \\
+    1          & 0          & 1                     \\
+    1          & 1          & 1                     \\ \hline
+    \end{tabular}
+\end{table}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{x} & \textbf{x' (NOT x, $\overline{x}$)} \\ \hline
+    0          & 1                                   \\
+    1          & 0                                   \\ \hline
+    \end{tabular}
+\end{table}
+
+\textbf{*Thứ tự phép toán:} theo thứ tự dấu ngoặc (), NOT, AND, OR.
+\subsubsection{Các tiên đề (Axioms):}
+\textbf{a. Tính kín (Closure Property)}
+
+\textbf{b. Phần tử đồng nhất (Identity Element):}
+\[
+    x.1 = 1.x = x
+\]
+\[
+    x+0 = 0+x = x
+\]
+
+\textbf{c. Tính giao hoán (Commutative Property):}
+\[
+    x.y = y.x
+\]
+\[
+    x+y = y+x
+\]
+
+\textbf{d. Tính phân bố (Complement Element):}
+\[
+    x.(y+z) = x.y + x.z
+\]
+\[
+    x+(y.z)=(x+y)(x+z)
+\]
+
+\textbf{e. Phần tử bù (Complement Element):}
+\[
+    x+\overline{x}=1 \qquad x.\overline{x} = 0
+\]
+\subsubsection{Các định lý cơ bản (Basic Theorems):}
+\textbf{a. Định lý 1:} $\overline{\overline{x}} = x$
+
+\textbf{b. Định lý 2:} $x+x = x \qquad x.x=x$
+
+\textbf{c. Định lý 3:} $x+1=1 \qquad x.0 = 0$
+
+\textbf{d. Định lý 4:} Định lý hấp thu (Absorption)
+\[
+    x+x.y = x \qquad x.(x+y) = x
+\]
+
+\textbf{e. Định lý 5:} Định lý kết hợp (Associative)
+\[
+    x+(y+z) = (x+y) + z \qquad x.(y.z) = (x.y).z
+\]
+
+\textbf{f. Định lý 6:} Định lý De Morgan
+\[
+    \overline{x+y} = \overline{x}.\overline{y} \qquad \overline{x.y} = \overline{x}+\overline{y}
+\]
+\subsection{Hàm Boole (Boolean Function):}
+\subsubsection{Định nghĩa:}
+\begin{itemize}
+    \item Hàm Boole là 1 biểu thức được tạo bởi các biến nhị phân và các phép toán nhị phân NOT, AND, OR.
+        \[
+            F(x,y,z)=x.y+\overline{x}.\overline{y}.z
+        \]
+    \item Với giá trị cho trước của các biến, hàm Boole sẽ có giá trị là 0 hoặc 1.
+    \item Bảng giá trị:
+\end{itemize}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|ccc|c|}
+    \hline
+    \textbf{x} & \textbf{y} & \textbf{z} & \textbf{F} \\ \hline
+    0          & 0          & 0          & 0          \\
+    0          & 0          & 1          & 1          \\
+    0          & 1          & 0          & 0          \\
+    0          & 1          & 1          & 0          \\
+    1          & 0          & 0          & 0          \\
+    1          & 0          & 1          & 0          \\
+    1          & 1          & 0          & 1          \\
+    1          & 1          & 1          & 1          \\ \hline
+    \end{tabular}
+    \end{table}
+\subsubsection{Bù của 1 hàm:}
+\begin{itemize}
+    \item[-] Sử dụng định lý De Morgan:
+        \[
+            F = x.y+\overline{x}.\overline{y}.z
+        \]
+        \[
+            \overline{F} = \overline{x.y+\overline{x}.\overline{y}.z} = \overline{(x.y)}.\overline{(\overline{x}.\overline{y}.z)}
+        \]
+        \[
+            \overline{F} = (\overline{x} + \overline{y}).(x+y+\overline{z})
+        \]
+    \item[-] Lấy biểu thức đối ngẫu và lấy bù các biến: Tính đối ngẫu (Duality): Hai biểu thức được gọi là đối ngẫu của nhau khi thay phép toán AND bằng OR, phép toán OR bằng AND, 0 thành 1 và 1 thành 0.
+        \[
+            F = x.y+\overline{x}.\overline{y}.z
+        \]
+    Lấy đối ngẫu: $(x.y)(\overline{x}.\overline{y}.z)$
+
+    Bù các biến: $\overline{F} = (\overline{x} + \overline{y}).(x+y+\overline{z})$
+\end{itemize}
+\subsection{Dạng chính tắc và dạng chuẩn của hàm Boole:}
+\subsubsection{Các tích chuẩn (minterm) và tổng chuẩn (Maxterm):}
+\begin{itemize}
+    \item[-] Tích chuẩn (minterm): $m_i \ (0 \leq i \leq 2^n - 1)$ là các số hạng tích (AND) của n biến mà hàm Boole phụ thuộc với quy ước biến đó có bù nếu nó là 0 và không bù nếu nó là 1.
+    \item[-] Tổng chuẩn (Maxterm): $M_i \ (0 \leq i \leq 2^n - 1)$ là các số hạng tổng (OR) của n biến mà hàm Boole phụ thuộc với quy ước biến đó có bù nếu nó là 1 và không bù nếu nó là 0.
+\end{itemize}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|ccc|c|c|}
+    \hline
+    \textbf{x} & \textbf{y} & \textbf{z} & \textit{\textbf{minterm}} & \textit{\textbf{Maxterm}} \\ \hline
+    0 & 0 & 0 & $m_0 = \overline{x}\ \overline{y}\ \overline{z}$ & $M_0 = x+y+z$ \\
+    0 & 0 & 1 & $m_1 = \overline{x}\ \overline{y}\ z$            & $M_1 = x+y+\overline{z}$ \\
+    0 & 1 & 0 & $m_2 = \overline{x}\ y\ \overline{z}$            & $M_2 = x+\overline{y}+z$ \\
+    0 & 1 & 1 & $m_3 = \overline{x}\ y\ z$                       & $M_3 = x+\overline{y}+\overline{z}$ \\
+    1 & 0 & 0 & $m_4 = x\ \overline{y}\ \overline{z}$            & $M_4 = \overline{x}+y+z$ \\
+    1 & 0 & 1 & $m_5 = x\ \overline{y}\ z$                       & $M_5 = \overline{x}+y+\overline{z}$ \\
+    1 & 1 & 0 & $m_6 = x\ y\ \overline{z}$                       & $M_6 = \overline{x}+\overline{y}+z$ \\
+    1 & 1 & 1 & $m_7 = x\ y\ z$                                  & $M_7 = \overline{x} + \overline{y} + \overline{z}$ \\ \hline
+    \end{tabular}
+    \qquad \qquad $m_i = \overline{M_i}$
+\end{table}
+\newpage
+\subsubsection{Dạng chính tắc (Canonical Form):}
+\textbf{a. Dạng chính tắc 1:} là dạng tổng của các tích chuẩn (minterm) làm cho hàm Boole có giá trị 1.
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|ccc|c|}
+    \hline
+    \textbf{x} & \textbf{y} & \textbf{z} & \textbf{F} \\ \hline
+    0          & 0          & 0          & 0          \\
+    0          & 0          & 1          & 1          \\
+    0          & 1          & 0          & 1          \\
+    0          & 1          & 1          & 0          \\
+    1          & 0          & 0          & 0          \\
+    1          & 0          & 1          & 1          \\
+    1          & 1          & 0          & 1          \\
+    1          & 1          & 1          & 1          \\ \hline
+    \end{tabular}
+    \qquad
+    $\begin{aligned}
+        F(x,y,z) &= \overline{x}\ \overline{y}\ z  + \overline{x}\ y\ \overline{z} + x\ \overline{y}\ z + xy\ \overline{z} + xyz \\
+                 &= m_1 + m_2 + m_5 + m_6 + m_7 \\
+                 &= \varSigma m(1,2,5,6,7) = \varSigma (1,2,5,6,7) \\
+        F(x,y,z) &= (x+y+z)(x+ \overline{y} + \overline{z})(\overline{x} + y + z)\\
+                 &= M_0 . M_3 . M_4 \\
+                 &= \varPi M(0,3,4) = \varPi (0,3,4)
+    \end{aligned}$
+\end{table}
+
+\textbf{b. Dạng chính tắc 2:} là dạng tích của các tổng chuẩn (Maxterm) làm cho hàm Boole có giá trị 0.
+
+\textbf{TRƯỜNG HỢP HÀM BOOLE TÙY ĐỊNH (don't care):} Hàm Boole n biến có thể không được định nghĩa hết tất cả $2^n$ tổ hợp của n biến phụ thuộc. Khi đó tại các tổ hợp không sử dụng này, hàm Boole sẽ nhận giá trị tùy định (don't care), nghĩa là hàm Boole có thể nhận giá trị 0 hoặc 1.
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|ccc|c|}
+    \hline
+    \textbf{x} & \textbf{y} & \textbf{z} & \textbf{F} \\ \hline
+    0          & 0          & 0          & X          \\
+    0          & 0          & 1          & 1          \\
+    0          & 1          & 0          & 1          \\
+    0          & 1          & 1          & 0          \\
+    1          & 0          & 0          & 0          \\
+    1          & 0          & 1          & 1          \\
+    1          & 1          & 0          & 1          \\
+    1          & 1          & 1          & X          \\ \hline
+    \end{tabular}
+    \qquad
+    $\begin{aligned}
+        F(x,y,z) &= \varSigma (1,2,5,6) + d(0,7)\\
+                 &= \varPi (3,4). D(0,7)
+    \end{aligned}$
+\end{table}
+\subsubsection{Dạng chuẩn (Standard Form):}
+\textbf{a. Dạng chuẩn 1:} là dạng tổng các tích (S.O.P - Sum of Product)
+\[
+    F(x,y,z) = xy + z
+\]
+\[
+    \begin{aligned}
+        F(x,y,z) &= xy + z\\
+                 &= xy(\overline{z}+z) + (\overline{x}+x)(\overline{y}+y)z\\
+                 &= xy\overline{z} + xyz + \overline{x}\ \overline{y} z + \overline{x}\ yz + x\overline{y}\ z + xyz\\
+                 &= m_6 + m_7 + m_1 + m_5+ m_3\\
+                 &= \varSigma (1,3,5,6,7)\\
+        F(x,y,z) &= xy + z\\
+                 &= (x+z)(y+z)\\
+                 &= (x + \overline{y}\ y + z)(\overline{x}\ x + y +z)\\
+                 &= (x + \overline{y} + z)(x+y+z)(\overline{x} + y + z)(x+y+z)\\
+                 &= M_2.M_0.M_4\\
+                 &= \varPi (0,2,4)
+    \end{aligned}
+\]
+\textbf{b. Dạng chuẩn 2:} là dạng tích các tổng (P.O.S - Product of Sum)
+\[
+    F(x,y,z) =(x+\overline{z})\overline{y}
+\]
+\[
+    \begin{aligned}
+        F(x,y,z) &= (x+\overline{z})\overline{y} = x\overline{y} + \overline{y}\ \overline{z}\\
+                 &= x\overline{y}(\overline{z} + z) + (\overline{x} + x)\overline{y}\ \overline{z}\\
+                 &= x\overline{y}\ \overline{z} + x\overline{y}\ z + \overline{x}\ \overline{y}\ \overline{z} + x\overline{y}\ \overline{z} \\
+                 &= m_4  + m_5 + m_0\\
+                 &= \varSigma (0,4,5)\\
+        F(x,y,z) &= (x+\overline{z})\overline{y}\\
+                 &= (x + \overline{y}\ y + \overline{z})(\overline{x}\ x + \overline{y} + \overline{z}\ z)\\
+                 &= (x + \overline{y} + \overline{z})(x + y + \overline{z})\\
+                 &= (\overline{x} + \overline{y} + \overline{z})(\overline{x} + \overline{y} + z)(x+\overline{y}+\overline{z})(x + \overline{y} + z)\\
+                 &= M_3.M_1.M_7.M_6.M_2\\
+                 &= \varPi (1,2,3,6,7)
+    \end{aligned}
+\]
+\subsection{Cổng logic}
+\subsubsection{Cổng NOT:}
+\begin{center}
+    \includegraphics[width = 0.7\textwidth]{./local/image/20.png}
+\end{center}
+\subsubsection{Cổng AND:}
+\begin{center}
+    \includegraphics[width = 0.7\textwidth]{./local/image/21.png}
+\end{center}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|cc|c|}
+    \hline
+    \textbf{x} & \textbf{y} & \textbf{z} \\ \hline
+    0          & 0          & 0                      \\
+    0          & 1          & 0                      \\
+    1          & 0          & 0                      \\
+    1          & 1          & 1                      \\ \hline
+    \end{tabular} \qquad
+    $\begin{aligned}
+        &\text{Với cổng AND có nhiều ngõ vào,}\\
+        &\text{ngõ ra sẽ là 1 nếu tất cả các ngõ vào đều là 1}
+    \end{aligned}$
+\end{table}
+\subsubsection{Cổng OR:}
+\begin{center}
+    \includegraphics[width = 0.7\textwidth]{./local/image/22.png}
+\end{center}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|cc|c|}
+    \hline
+    \textbf{x} & \textbf{y} & \textbf{z} \\ \hline
+    0          & 0          & 0                      \\
+    0          & 1          & 1                      \\
+    1          & 0          & 1                      \\
+    1          & 1          & 1                      \\ \hline
+    \end{tabular} \qquad
+    $\begin{aligned}
+        &\text{Với cổng OR có nhiều ngõ vào,}\\
+        &\text{ngõ ra sẽ là 0 nếu tất cả các ngõ vào đều là 0}
+    \end{aligned}$
+\end{table}
+\subsubsection{Cổng NAND:}
+\begin{center}
+    \includegraphics[width = 0.7\textwidth]{./local/image/23.png}
+\end{center}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|cc|c|}
+    \hline
+    \textbf{x} & \textbf{y} & \textbf{z} \\ \hline
+    0          & 0          & 1                      \\
+    0          & 1          & 1                      \\
+    1          & 0          & 1                      \\
+    1          & 1          & 0                      \\ \hline
+    \end{tabular} \qquad
+    $\begin{aligned}
+        &\text{Với cổng NAND có nhiều ngõ vào,}\\
+        &\text{ngõ ra sẽ là 0 nếu tất cả các ngõ vào đều là 1}
+    \end{aligned}$
+\end{table}
+\subsubsection{Cổng NOR:}
+\begin{center}
+    \includegraphics[width = 0.7\textwidth]{./local/image/24.png}
+\end{center}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|cc|c|}
+    \hline
+    \textbf{x} & \textbf{y} & \textbf{z} \\ \hline
+    0          & 0          & 1                      \\
+    0          & 1          & 0                      \\
+    1          & 0          & 0                      \\
+    1          & 1          & 0                      \\ \hline
+    \end{tabular} \qquad
+    $\begin{aligned}
+        &\text{Với cổng NOR có nhiều ngõ vào,}\\
+        &\text{ngõ ra sẽ là 1 nếu tất cả các ngõ vào đều là 0}
+    \end{aligned}$
+\end{table}
+\subsubsection{Cổng XOR:}
+\begin{center}
+    \includegraphics[width = 0.7\textwidth]{./local/image/25.png}
+\end{center}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|cc|c|}
+    \hline
+    \textbf{x} & \textbf{y} & \textbf{z} \\ \hline
+    0          & 0          & 0                      \\
+    0          & 1          & 1                      \\
+    1          & 0          & 1                      \\
+    1          & 1          & 0                      \\ \hline
+    \end{tabular} \qquad
+    $\begin{aligned}
+        &\text{Với cổng XOR có nhiều ngõ vào, ngõ ra sẽ là 1}\\
+        &\text{ếu tổng số bit 1 ở các ngõ vào là số lẻ}
+    \end{aligned}$
+\end{table}
+\[
+    z = x \oplus y = \overline{x}\ y + x\ \overline{y} = (x+y)(\overline{x} + \overline{y})
+\]
+\subsubsection{Cổng XNOR:}
+\begin{center}
+    \includegraphics[width = 0.7\textwidth]{./local/image/26.png}
+\end{center}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|cc|c|}
+    \hline
+    \textbf{x} & \textbf{y} & \textbf{z} \\ \hline
+    0          & 0          & 1                      \\
+    0          & 1          & 0                      \\
+    1          & 0          & 0                      \\
+    1          & 1          & 1                      \\ \hline
+    \end{tabular} \qquad
+    $\begin{aligned}
+        &\text{Với cổng XNOR có nhiều ngõ vào, ngõ ra sẽ là 1}\\
+        &\text{nếu tổng số bit 1 ở các ngõ vào là số chẵn}
+    \end{aligned}$
+\end{table}
+\[
+    z = \overline{x \oplus y} = \overline{x}\ \overline{y} +xy = (x+\overline{y})(\overline{x} + y)
+\]
+\subsection{Rút gọn hàm Boole:}
+Rút gọn (tối thiểu hóa) hàm Boole nghĩa là đưa hàm Boole về dạng biểu diễn đơn giản nhất, sao cho:
+\begin{itemize}
+    \item[-] Biểu thức có chứa ít nhất các thừa số và mỗi thừa số chứa ít nhất các biến.
+    \item[-]  Mạch logic thực hiện có chứa ít nhất các vi mạch số.
+\end{itemize}
+\subsubsection{Phương pháp đại số:}
+Dùng các định lý và tiên đề để rút gọn hàm.
+\[
+    \begin{aligned}
+        F(A,B,C) &= \varSigma(2,3,5,6,7) \\
+                 &= \overline{A}B\overline{C} + \overline{A}BC + A\overline{B}C + AB\overline{C} + ABC\\
+                 &= \overline{A}B(\overline{C} + c) + AC(\overline{B} + B) + AB(\overline{C} + C)\\
+                 &= \overline{A}B + AC + AB\\
+                 &= (\overline{A}+A)B + AC\\
+                 &= B + AC
+    \end{aligned}
+\]
+\subsubsection{Phương pháp bìa KARNAUGH:}
+\textbf{a. Cách biểu diễn:} 
+\begin{itemize}
+    \item[-] Bìa K gồm các ô vuông, mỗi ô vuông biểu diễn cho tổ hợp n biến. Như vậy bìa K cho n biến sẽ có $2^n$ ô.
+    \item[-] Hai ô được gọi là kề cận nhau khi tổ hợp biến mà chúng biểu diễn chỉ khác nhau 1 biến.
+    \item[-] Trong ô sẽ ghi giá trị tương ứng của hàm Boole tại tổ hợp đó. Ở dạng chính tắc 1 thì đưa các giá trị 1 và X lên các ô, không đưa các giá trị 0. Ngược lại, dạng chính tắc 2 thì chỉ đưa giá trị 0 và X.
+\end{itemize}
+\textbf{* Bìa 2 biến:} $F(A,B) = \varSigma(0,2) + d(3) = \varPi(1).D(3)$
+\begin{center}
+    \includegraphics[width = 0.75\textwidth]{./local/image/27.png}
+\end{center}
+\textbf{* Bìa 3 biến:}
+\begin{center}
+    \includegraphics[width = 0.4\textwidth]{./local/image/28.png}
+\end{center}
+\[
+    F(A,B,c) = \varSigma(2,4,7) + d(0,1) = \varPi(3,5,6).D(0,1)
+\]
+\begin{center}
+    \includegraphics[width = 0.8\textwidth]{./local/image/29.png}
+\end{center}
+\textbf{* Bìa 4 biến:}
+\begin{center}
+    \includegraphics[width = 0.4\textwidth]{./local/image/30.png}
+\end{center}
+\textbf{* Bìa 5 biến:}
+\begin{center}
+    \includegraphics[width = 0.7\textwidth]{./local/image/31.png}
+\end{center}
+
+\textbf{b. Rút gọn bìa Karnaugh:}\\
+\textbf{* Nguyên tắc:}
+\begin{itemize}
+    \item[-] Liên kết đôi: Khi liên kết (OR) hai ô có giá trị 1 (Ô$\_$1) kề cận với nhau trên bìa K, ta sẽ được 1 số hạng tích mất đi 1 biến so với tích chuẩn (biến mất đi là biến khác nhau giữa 2 ô) Hoặc khi liên kết (AND) hai ô có giá trị 0 (Ô$\_$0) kề cận với nhau trên bìa K, ta sẽ được 1 số hạng tổng mất đi 1 biến so với tổng chuẩn (biến mất đi là biến khác nhau giữa 2 ô).
+    \begin{center}
+        \includegraphics[width = 0.7\textwidth]{./local/image/32.png}
+    \end{center}    
+    \item[-] Liên kết 4: Tương tự như liên kết đôi khi liên kết 4 Ô$\_$1 hoặc 4 Ô$\_$0 kề cận với nhau, ta sẽ loại đi 2 biến (2 biến khác nhau giữa 4 ô).
+    \begin{center}
+        \includegraphics[width = 0.7\textwidth]{./local/image/33.png}
+    \end{center}
+    \item[-] Liên kết 8: Liên kết 8 ô kề cận với nhau, ta sẽ loại đi được 3 biến (3 biến khác nhau giữa 8 ô).
+    \begin{center}
+        \includegraphics[width = 0.7\textwidth]{./local/image/34.png}
+    \end{center}
+    \item[-] Liên kết $2^k$: Khi ta liên kết $2^k$ Ô$\_$1 hoặc $2^k$ Ô$\_$0 kề cận với nhau ta sẽ loại đi được k biến (k biến khác nhau giữa $2^k$ ô).
+\end{itemize}
+\textbf{*Các bước thực hiện rút gọn theo dạng S.O.P:}
+\begin{itemize}
+    \item[-] Biểu diễn các Ô$\_$1 lên bìa Karnaugh
+    \item[-] Thực hiện các liên kết có thể có sao cho các Ô$\_$1 được liên kết ít nhất 1 lần; mỗi liên kết cho ta 1 số hạng tích. (Nếu Ô$\_$1 không có kề cận với các Ô$\_$1 khác thì ta có liên kết 1; số hạng tích chính bằng minterm của ô đó).
+    \item[-] Biểu thức rút gọn có được bằng cách lấy tổng (OR) của các số hạng tích liên kết trên.
+\end{itemize}
+\[
+    F(A,B,C,D) = \varSigma (0,1,3,5,6) = \overline{A}\ \overline{B} + \overline{A}C + \overline{B}C + AB\overline{C}
+\]
+\begin{center}
+    \includegraphics[width = 0.7\textwidth]{./local/image/35.png}
+\end{center}
+\textbf{*Các bước thực hiện rút gọn theo dạng P.O.S:}
+\begin{itemize}
+    \item[-] Biểu diễn các Ô$\_$0 lên bìa Karnaugh
+    \item[-] Thực hiện các liên kết có thể có sao cho các Ô$\_$0 được liên kết ít nhất 1 lần; mỗi liên kết cho ta 1 số hạng tổng.
+    \item[-] Biểu thức rút gọn có được bằng cách lấy tích (AND) của các số hạng tổng liên kết trên.
+\end{itemize}
+\[
+    F(A,B,C,D) = \varPi(0,4,8,9,12,13,15) = (C+D)(\overline{A} + C)(\overline{A} + \overline{B} + \overline{D})
+\]
+\begin{center}
+    \includegraphics[width = 0.8\textwidth]{./local/image/36.png}
+\end{center}
+\textbf{*Trường hợp rút gọn hàm Boole có tùy định:} thì ta có thể coi các Ô tùy định này là Ô$\_$1 hoặc Ô$\_$0 sao cho có lợi khi liên kết (nghĩa là có được liên kết nhiều Ô kề cận nhất).
+\[
+    F(A,B,C,D) = \varSigma(0,4,8,10) + d(2,12,15) = \overline{B} \overline{D} + \overline{C}\overline{D}
+\]
+\begin{center}
+    \includegraphics[width = 0.5\textwidth]{./local/image/37.png}
+\end{center}
+\[
+    F(A,B,C,D) = \varPi(0,2,3,4,6,10,14) . D(8,9,11,12,13) = D(B + \overline{C})
+\]
+\begin{center}
+    \includegraphics[width = 0.5\textwidth]{./local/image/38.png}
+\end{center}
+\textbf{*Chú ý:} 
+\begin{itemize}
+    \item[-] Ưu tiên liên kết cho các ô cỉ co 1 kiểu liên kết (phải là liên kết có nhiều ô nhất).
+    \item[-] Khi liên kết phải đảm bảo có chứa ít nhất 1 ô chưa được liên kết lần nào.
+    \item[-] Có thể có nhiều cách liên kết có kết quả tương đương nhau.
+    \item[-] Ta coi các tùy định như là những ô đã liên kết rồi.
+\end{itemize}
+\subsection{Thực hiện hàm Boole bằng cổng logic:}
+\subsubsection{Cấu trúc cổng AND$\_$OR:}
+Cấu trúc cổng AND$\_$OR là sơ đồ logic thực hiện cho hàm Boole biểu diễn theo dạng tổng các tích (S.O.P).
+\[
+    F(A,B,C,D) = \overline{A}BD + C\overline{D}
+\]
+\begin{center}
+    \includegraphics[width = 0.8\textwidth]{./local/image/39.png}
+\end{center}
+\subsubsection{Cấu trúc cổng OR$\_$AND:}
+Cấu trúc cổng OR$\_$AND là sơ đồ logic thực hiện cho hàm Boole biểu diễn theo dạng tích các tổng (P.O.S).
+\[
+    F(A,B,C,D) = (\overline{A}+D)(B + \overline{C} + \overline{D})
+\]
+\begin{center}
+    \includegraphics[width = 0.8\textwidth]{./local/image/40.png}
+\end{center}
+\subsubsection{Cấu trúc cổng AND$\_$OR$\_$INVERTER (AOI):}
+Cấu trúc cổng AOI là sơ đồ logic thực hiện cho hàm Boole biểu diễn theo dạng bù (INVERTER = NOT) của tổng các tích.
+\[
+    F(A,B,C,D) = \overline{AD + BC}
+\]
+\begin{center}
+    \includegraphics[width = 0.8\textwidth]{./local/image/41.png}
+\end{center}
+\subsubsection{Cấu trúc cổng OR$\_$AND$\_$INVERTER (OAI):}
+Cấu trúc cổng OAI là sơ đồ logic thực hiện cho hàm Boole biểu diễn theo dạng bù của tích các tổng.
+\[
+    F(A,B,C,D) = \overline{(\overline{A} + \overline{D})(B+C)}
+\]
+\begin{center}
+    \includegraphics[width = 0.8\textwidth]{./local/image/42.png}
+\end{center}
+\subsubsection{Cấu trúc toàn cổng NAND:}
+Cấu trúc NAND là sơ đồ logic thực hiện cho hàm Boole có biểu thức là dạng bù của 1 số hạng tích.
+\begin{itemize}
+    \item[-] Dùng định lý De-Morgan để biến đổi số hạng tổng thành tích.
+    \item[-] Cổng NOT cũng được thay thế bằng cổng NAND.
+\end{itemize}
+\[
+    F(A,B,C,D) = \overline{\overline{\overline{A}BD + C\overline{D}}} = \overline{\overline{\overline{A}BD}.\overline{C\overline{D}}}
+\]
+\begin{center}
+    \includegraphics[width = 0.8\textwidth]{./local/image/43.png}
+\end{center}
+\[ 
+    F(A,B,C,D) = \overline{\overline{(\overline{A} + D)}}\ \overline{\overline{(B+ \overline{C} + \overline{D})}} = \overline{\overline{\overline{A\overline{D}}.\overline{\overline{B}CD}}}
+\]
+\begin{center}
+    \includegraphics[width = 0.8\textwidth]{./local/image/44.png}
+\end{center}
+Trong thực tế người ta chỉ sử dụng 1 loại cổng NAND 2 ngõ vào; khi đó ta phải biến đổi biểu thức sao cho chỉ có dạng bù trên 1 số hạng tích chỉ có 2 biến.
+\[
+    F(A,B,C,D) = \overline{\overline{\overline{A}BD}.\overline{C\overline{D}}} = \overline{\overline{\overline{\overline{\overline{A}B}}D}.\overline{C\overline{D}}}
+\]
+\begin{center}
+    \includegraphics[width = 0.8\textwidth]{./local/image/45.png}
+\end{center}
+\subsubsection{Cấu trúc toàn cổng NOR:}
+Cấu trúc NOR là sơ đồ logic thực hiện cho hàm Boole có biểu thức là dạng bù của 1 số hạng tổng.
+\begin{itemize}
+    \item[-] Dùng định lý De-Morgan để biến đổi số hạng tích thành tổng.
+    \item[-] Cổng NOT cũng được thay thế bằng cổng NOR.
+\end{itemize}
+\[
+    F(A,B,C,D) = \overline{\overline{(A + \overline{D})\ (\overline{B} + C + D)}} = \overline{\overline{(A + \overline{D})} + \overline{(\overline{B} + C + D)}}
+\]
+\begin{center}
+    \includegraphics[width = 0.8\textwidth]{./local/image/46.png}
+\end{center}
+\[
+    F(A,B,C,D) = \overline{\overline{\overline{A}BD}} + \overline{\overline{C\overline{D}}} = \overline{\overline{\overline{(A + \overline{B} + \overline{D})} + \overline{(\overline{C} + D)}}}
+\]
+\begin{center}
+    \includegraphics[width = 0.8\textwidth]{./local/image/47.png}
+\end{center}
+\[
+    F(A,B,C,D) = \overline{\overline{(\overline{A} + D)(B + \overline{C})(\overline{C} + D)}} = \overline{\overline{(\overline{A} + D)} + \overline{(B + \overline{C})} + \overline{(\overline{C} + D)}} 
+\]
+\[
+    = \overline{\overline{\overline{\overline{(\overline{A} + D)} + \overline{(B + \overline{C})}}} + \overline{(\overline{C} + D)}}
+\]
+\begin{center}
+    \includegraphics[width = 0.8\textwidth]{./local/image/48.png}
+\end{center}
